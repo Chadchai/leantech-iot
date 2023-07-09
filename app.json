@@ -13,7 +13,7 @@
     "Cloud"
   ],
   "website": "http://nodered.org/",
-  "repository": "https://github.com/hybuild-project/nodered-heroku.git",
+  "repository": "https://github.com/Chadchai/leantech-iot.git",
   "logo": "http://nodered.org/node-red.png",
   "success_url": "/editor",
   "env": {
