@@ -8,33 +8,6 @@
         "env": []
     },
     {
-        "id": "6961f14fdaa59452",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "broker.hivemq.com",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
         "id": "aa561f4a.a44358",
         "type": "function",
         "z": "b5d76542feef8d37",
@@ -138,7 +111,7 @@
         "y": 188,
         "wires": [
             [
-                "14836f2d51ba9663"
+                "39c7854c.56d18a"
             ]
         ]
     },
@@ -167,7 +140,7 @@
         "y": 150.09001922607422,
         "wires": [
             [
-                "14836f2d51ba9663"
+                "39c7854c.56d18a"
             ]
         ]
     },
@@ -194,31 +167,6 @@
         "payloadType": "json",
         "x": 343,
         "y": 82,
-        "wires": [
-            [
-                "14836f2d51ba9663"
-            ]
-        ]
-    },
-    {
-        "id": "14836f2d51ba9663",
-        "type": "Azure IoT Central",
-        "z": "b5d76542feef8d37",
-        "scopeid": "0ne00A3E8C3",
-        "deviceid": "8slxe5cvh7",
-        "primarykey": "PBosOPjcQo0nFdGSC+wiS+xnlf3qJSJQn300cBSzy74=",
-        "command1": "",
-        "command2": "",
-        "command3": "",
-        "command4": "",
-        "command5": "",
-        "transport": "mqtt",
-        "auth": "sas",
-        "certfile": "",
-        "certkeyfile": "",
-        "passwordi": "",
-        "x": 650,
-        "y": 180,
         "wires": [
             [
                 "39c7854c.56d18a"
@@ -278,9 +226,35 @@
         "y": 20,
         "wires": [
             [
-                "b8b70400f9334b4e",
-                "14836f2d51ba9663"
+                "b8b70400f9334b4e"
             ]
         ]
+    },
+    {
+        "id": "6961f14fdaa59452",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     }
 ]
