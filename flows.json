@@ -8,6 +8,25 @@
         "env": []
     },
     {
+        "id": "aa561f4a.a44358",
+        "type": "function",
+        "z": "b5d76542feef8d37",
+        "name": "Function",
+        "func": "var msg1 = '{\"deviceID\": \"Arduino001\", '\nmsg1 = msg1 + '\"SAK\": \"Yub6LJ9vjuPaJ4zWXCPEYr8+eRByyCUwB3h8VefIlEE=\", '  \nmsg1 = msg1 + '\"Protocol\": \"mqtt\", '\nmsg1 = msg1 + '\"Data\": { \"' + msg.topic + '\": \"' + msg.payload + '\"}}'\n\nvar newMsg = { payload: msg1 };\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 380,
+        "wires": [
+            [
+                "39c7854c.56d18a"
+            ]
+        ]
+    },
+    {
         "id": "48115883.03fae8",
         "type": "inject",
         "z": "b5d76542feef8d37",
@@ -28,13 +47,25 @@
         "topic": "speed",
         "payload": "345",
         "payloadType": "num",
-        "x": 350,
-        "y": 400,
+        "x": 361,
+        "y": 387,
         "wires": [
             [
                 "aa561f4a.a44358"
             ]
         ]
+    },
+    {
+        "id": "39c7854c.56d18a",
+        "type": "debug",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 848.3400268554688,
+        "y": 350.47998046875,
+        "wires": []
     },
     {
         "id": "31ae88af.f84fa",
@@ -47,8 +78,8 @@
         "topic": "temperature",
         "payload": "87",
         "payloadType": "num",
-        "x": 368,
-        "y": 436,
+        "x": 379,
+        "y": 423,
         "wires": [
             [
                 "aa561f4a.a44358"
@@ -76,8 +107,8 @@
         "topic": "",
         "payload": "{ \"temperature\" : \"32\", \"Humidity\": \"34\"}",
         "payloadType": "json",
-        "x": 389,
-        "y": 261,
+        "x": 400,
+        "y": 248,
         "wires": [
             [
                 "14836f2d51ba9663"
@@ -105,8 +136,8 @@
         "topic": "",
         "payload": "{ \"Humidity\" : \"30\"}",
         "payloadType": "json",
-        "x": 366.9099426269531,
-        "y": 223.09001922607422,
+        "x": 377.9099426269531,
+        "y": 210.09001922607422,
         "wires": [
             [
                 "14836f2d51ba9663"
@@ -134,8 +165,8 @@
         "topic": "",
         "payload": "{ \"temperature\" : \"25\"}",
         "payloadType": "json",
-        "x": 372,
-        "y": 155,
+        "x": 383,
+        "y": 142,
         "wires": [
             [
                 "14836f2d51ba9663"
@@ -155,8 +186,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 99,
-        "y": 153,
+        "x": 110,
+        "y": 140,
         "wires": [
             [
                 "2d91d39ca9729563"
@@ -176,8 +207,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 789,
-        "y": 93,
+        "x": 860,
+        "y": 100,
         "wires": []
     },
     {
@@ -185,50 +216,19 @@
         "type": "function",
         "z": "b5d76542feef8d37",
         "name": "function 1",
-        "func": "var msg1 = '{\"' + msg.topic + '\": \"' + msg.payload + '\"}'\nvar newmsg = { payload: msg1 };\nreturn newmsg;",
+        "func": "var msg1 = '{ \"' + msg.topic + '\": \"' + msg.payload + '\"}'\nvar newmsg = { payload: msg1 };\nreturn newmsg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 309,
-        "y": 93,
+        "x": 320,
+        "y": 80,
         "wires": [
             [
-                "ca7a5777d729a3f5"
+                "df9b57e7193c90c9"
             ]
         ]
-    },
-    {
-        "id": "aa561f4a.a44358",
-        "type": "function",
-        "z": "b5d76542feef8d37",
-        "name": "Function",
-        "func": "var msg1 = '{\"deviceID\": \"Arduino001\", '\nmsg1 = msg1 + '\"SAK\": \"Yub6LJ9vjuPaJ4zWXCPEYr8+eRByyCUwB3h8VefIlEE=\", '  \nmsg1 = msg1 + '\"Protocol\": \"mqtt\", '\nmsg1 = msg1 + '\"Data\": { \"' + msg.topic + '\": \"' + msg.payload + '\"}}'\n\nvar newMsg = { payload: msg1 };\nreturn newMsg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 569,
-        "y": 393,
-        "wires": [
-            [
-                "39c7854c.56d18a"
-            ]
-        ]
-    },
-    {
-        "id": "39c7854c.56d18a",
-        "type": "debug",
-        "z": "b5d76542feef8d37",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "payload",
-        "x": 837.3400268554688,
-        "y": 363.47998046875,
-        "wires": []
     },
     {
         "id": "14836f2d51ba9663",
@@ -247,8 +247,8 @@
         "certfile": "",
         "certkeyfile": "",
         "passwordi": "",
-        "x": 679,
-        "y": 253,
+        "x": 760,
+        "y": 180,
         "wires": [
             [
                 "39c7854c.56d18a"
@@ -256,15 +256,15 @@
         ]
     },
     {
-        "id": "ca7a5777d729a3f5",
+        "id": "df9b57e7193c90c9",
         "type": "json",
         "z": "b5d76542feef8d37",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 539,
-        "y": 93,
+        "x": 570,
+        "y": 80,
         "wires": [
             [
                 "b8b70400f9334b4e",
