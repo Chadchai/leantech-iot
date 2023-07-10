@@ -8,25 +8,6 @@
         "env": []
     },
     {
-        "id": "aa561f4a.a44358",
-        "type": "function",
-        "z": "b5d76542feef8d37",
-        "name": "Function",
-        "func": "var msg1 = '{\"deviceID\": \"Arduino001\", '\nmsg1 = msg1 + '\"SAK\": \"Yub6LJ9vjuPaJ4zWXCPEYr8+eRByyCUwB3h8VefIlEE=\", '  \nmsg1 = msg1 + '\"Protocol\": \"mqtt\", '\nmsg1 = msg1 + '\"Data\": { \"' + msg.topic + '\": \"' + msg.payload + '\"}}'\n\nvar newMsg = { payload: msg1 };\nreturn newMsg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 320,
-        "wires": [
-            [
-                "39c7854c.56d18a"
-            ]
-        ]
-    },
-    {
         "id": "48115883.03fae8",
         "type": "inject",
         "z": "b5d76542feef8d37",
@@ -47,25 +28,13 @@
         "topic": "speed",
         "payload": "345",
         "payloadType": "num",
-        "x": 321,
-        "y": 327,
+        "x": 350,
+        "y": 400,
         "wires": [
             [
                 "aa561f4a.a44358"
             ]
         ]
-    },
-    {
-        "id": "39c7854c.56d18a",
-        "type": "debug",
-        "z": "b5d76542feef8d37",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "payload",
-        "x": 808.3400268554688,
-        "y": 290.47998046875,
-        "wires": []
     },
     {
         "id": "31ae88af.f84fa",
@@ -78,8 +47,8 @@
         "topic": "temperature",
         "payload": "87",
         "payloadType": "num",
-        "x": 339,
-        "y": 363,
+        "x": 368,
+        "y": 436,
         "wires": [
             [
                 "aa561f4a.a44358"
@@ -107,11 +76,11 @@
         "topic": "",
         "payload": "{ \"temperature\" : \"32\", \"Humidity\": \"34\"}",
         "payloadType": "json",
-        "x": 360,
-        "y": 188,
+        "x": 389,
+        "y": 261,
         "wires": [
             [
-                "39c7854c.56d18a"
+                "14836f2d51ba9663"
             ]
         ]
     },
@@ -136,11 +105,11 @@
         "topic": "",
         "payload": "{ \"Humidity\" : \"30\"}",
         "payloadType": "json",
-        "x": 337.9099426269531,
-        "y": 150.09001922607422,
+        "x": 366.9099426269531,
+        "y": 223.09001922607422,
         "wires": [
             [
-                "39c7854c.56d18a"
+                "14836f2d51ba9663"
             ]
         ]
     },
@@ -165,11 +134,11 @@
         "topic": "",
         "payload": "{ \"temperature\" : \"25\"}",
         "payloadType": "json",
-        "x": 343,
-        "y": 82,
+        "x": 372,
+        "y": 155,
         "wires": [
             [
-                "39c7854c.56d18a"
+                "14836f2d51ba9663"
             ]
         ]
     },
@@ -186,8 +155,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 70,
-        "y": 80,
+        "x": 99,
+        "y": 153,
         "wires": [
             [
                 "2d91d39ca9729563"
@@ -207,8 +176,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 40,
+        "x": 789,
+        "y": 93,
         "wires": []
     },
     {
@@ -216,17 +185,90 @@
         "type": "function",
         "z": "b5d76542feef8d37",
         "name": "function 1",
-        "func": "var msg1 = '\"Data\": { \"' + msg.topic + '\": \"' + msg.payload + '\"}}'\nvar newmsg = { payload: msg1 };\nreturn newmsg;",
+        "func": "var msg1 = '{\"' + msg.topic + '\": \"' + msg.payload + '\"}'\nvar newmsg = { payload: msg1 };\nreturn newmsg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 20,
+        "x": 309,
+        "y": 93,
         "wires": [
             [
-                "b8b70400f9334b4e"
+                "ca7a5777d729a3f5"
+            ]
+        ]
+    },
+    {
+        "id": "aa561f4a.a44358",
+        "type": "function",
+        "z": "b5d76542feef8d37",
+        "name": "Function",
+        "func": "var msg1 = '{\"deviceID\": \"Arduino001\", '\nmsg1 = msg1 + '\"SAK\": \"Yub6LJ9vjuPaJ4zWXCPEYr8+eRByyCUwB3h8VefIlEE=\", '  \nmsg1 = msg1 + '\"Protocol\": \"mqtt\", '\nmsg1 = msg1 + '\"Data\": { \"' + msg.topic + '\": \"' + msg.payload + '\"}}'\n\nvar newMsg = { payload: msg1 };\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 569,
+        "y": 393,
+        "wires": [
+            [
+                "39c7854c.56d18a"
+            ]
+        ]
+    },
+    {
+        "id": "39c7854c.56d18a",
+        "type": "debug",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 837.3400268554688,
+        "y": 363.47998046875,
+        "wires": []
+    },
+    {
+        "id": "14836f2d51ba9663",
+        "type": "Azure IoT Central",
+        "z": "b5d76542feef8d37",
+        "scopeid": "0ne00A3E8C3",
+        "deviceid": "8slxe5cvh7",
+        "primarykey": "PBosOPjcQo0nFdGSC+wiS+xnlf3qJSJQn300cBSzy74=",
+        "command1": "",
+        "command2": "",
+        "command3": "",
+        "command4": "",
+        "command5": "",
+        "transport": "mqtt",
+        "auth": "sas",
+        "certfile": "",
+        "certkeyfile": "",
+        "passwordi": "",
+        "x": 679,
+        "y": 253,
+        "wires": [
+            [
+                "39c7854c.56d18a"
+            ]
+        ]
+    },
+    {
+        "id": "ca7a5777d729a3f5",
+        "type": "json",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 539,
+        "y": 93,
+        "wires": [
+            [
+                "b8b70400f9334b4e",
+                "14836f2d51ba9663"
             ]
         ]
     },
