@@ -325,7 +325,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "10",
+        "repeat": "3600",
         "crontab": "",
         "once": false,
         "onceDelay": "10",
@@ -407,7 +407,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "10",
+        "repeat": "3600",
         "crontab": "",
         "once": false,
         "onceDelay": "10",
