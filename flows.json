@@ -8,33 +8,6 @@
         "env": []
     },
     {
-        "id": "6961f14fdaa59452",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "broker.hivemq.com",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
         "id": "aa561f4a.a44358",
         "type": "function",
         "z": "b5d76542feef8d37",
@@ -319,5 +292,196 @@
                 "2d91d39ca9729563"
             ]
         ]
+    },
+    {
+        "id": "0beb6c37db1256fb",
+        "type": "mqtt out",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "topic": "temperature",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 510,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c0b7502f344467eb",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "temperature",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 500,
+        "wires": [
+            [
+                "6b5ea2cbaec2de3f"
+            ]
+        ]
+    },
+    {
+        "id": "6b5ea2cbaec2de3f",
+        "type": "random",
+        "z": "b5d76542feef8d37",
+        "name": "randomTemp",
+        "low": "20",
+        "high": "50",
+        "inte": "false",
+        "property": "payload",
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "0beb6c37db1256fb",
+                "95d621f617c5ebf3"
+            ]
+        ]
+    },
+    {
+        "id": "95d621f617c5ebf3",
+        "type": "debug",
+        "z": "b5d76542feef8d37",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "71ec8576274076cf",
+        "type": "mqtt out",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "topic": "Humidity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 500,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "04ceeb5fc9f8b67f",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "temperature",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "52c387b2f8573df1"
+            ]
+        ]
+    },
+    {
+        "id": "52c387b2f8573df1",
+        "type": "random",
+        "z": "b5d76542feef8d37",
+        "name": "randomHumu",
+        "low": "10",
+        "high": "50",
+        "inte": "false",
+        "property": "payload",
+        "x": 300,
+        "y": 660,
+        "wires": [
+            [
+                "71ec8576274076cf",
+                "15444c1cad55e1d9"
+            ]
+        ]
+    },
+    {
+        "id": "15444c1cad55e1d9",
+        "type": "debug",
+        "z": "b5d76542feef8d37",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "6961f14fdaa59452",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     }
 ]
