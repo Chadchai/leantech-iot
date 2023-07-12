@@ -1,5 +1,399 @@
 [
     {
+        "id": "b5d76542feef8d37",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "aa561f4a.a44358",
+        "type": "function",
+        "z": "b5d76542feef8d37",
+        "name": "Function",
+        "func": "var msg1 = '{\"deviceID\": \"Arduino001\", '\nmsg1 = msg1 + '\"SAK\": \"Yub6LJ9vjuPaJ4zWXCPEYr8+eRByyCUwB3h8VefIlEE=\", '  \nmsg1 = msg1 + '\"Protocol\": \"mqtt\", '\nmsg1 = msg1 + '\"Data\": { \"' + msg.topic + '\": \"' + msg.payload + '\"}}'\n\nvar newMsg = { payload: msg1 };\nreturn newMsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 380,
+        "wires": [
+            [
+                "39c7854c.56d18a"
+            ]
+        ]
+    },
+    {
+        "id": "48115883.03fae8",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "Speed",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "speed",
+        "payload": "345",
+        "payloadType": "num",
+        "x": 361,
+        "y": 387,
+        "wires": [
+            [
+                "aa561f4a.a44358"
+            ]
+        ]
+    },
+    {
+        "id": "39c7854c.56d18a",
+        "type": "debug",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 848.3400268554688,
+        "y": 350.47998046875,
+        "wires": []
+    },
+    {
+        "id": "31ae88af.f84fa",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "Temperature",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "temperature",
+        "payload": "87",
+        "payloadType": "num",
+        "x": 379,
+        "y": 423,
+        "wires": [
+            [
+                "aa561f4a.a44358"
+            ]
+        ]
+    },
+    {
+        "id": "f3fce0b1.76ed6",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "Send Multiple Values",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "{ \"temperature\" : \"32\", \"Humidity\": \"34\"}",
+        "payloadType": "json",
+        "x": 400,
+        "y": 248,
+        "wires": [
+            [
+                "14836f2d51ba9663"
+            ]
+        ]
+    },
+    {
+        "id": "15aa66ba.d05be9",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "Send one value",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "{ \"Humidity\" : \"30\"}",
+        "payloadType": "json",
+        "x": 377.9099426269531,
+        "y": 210.09001922607422,
+        "wires": [
+            [
+                "14836f2d51ba9663"
+            ]
+        ]
+    },
+    {
+        "id": "24956e6.952af12",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "Send one value",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "{ \"temperature\" : \"25\"}",
+        "payloadType": "json",
+        "x": 383,
+        "y": 142,
+        "wires": [
+            [
+                "14836f2d51ba9663"
+            ]
+        ]
+    },
+    {
+        "id": "6c8ee8e3a5382b43",
+        "type": "mqtt in",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "topic": "temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6961f14fdaa59452",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "2d91d39ca9729563"
+            ]
+        ]
+    },
+    {
+        "id": "b8b70400f9334b4e",
+        "type": "debug",
+        "z": "b5d76542feef8d37",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2d91d39ca9729563",
+        "type": "function",
+        "z": "b5d76542feef8d37",
+        "name": "function 1",
+        "func": "var msg1 = '{ \"' + msg.topic + '\": \"' + msg.payload + '\"}'\nvar newmsg = { payload: msg1 };\nreturn newmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 80,
+        "wires": [
+            [
+                "df9b57e7193c90c9"
+            ]
+        ]
+    },
+    {
+        "id": "14836f2d51ba9663",
+        "type": "Azure IoT Central",
+        "z": "b5d76542feef8d37",
+        "scopeid": "0ne00A3E8C3",
+        "deviceid": "8slxe5cvh7",
+        "primarykey": "PBosOPjcQo0nFdGSC+wiS+xnlf3qJSJQn300cBSzy74=",
+        "command1": "",
+        "command2": "",
+        "command3": "",
+        "command4": "",
+        "command5": "",
+        "transport": "mqtt",
+        "auth": "sas",
+        "certfile": "",
+        "certkeyfile": "",
+        "passwordi": "",
+        "x": 760,
+        "y": 180,
+        "wires": [
+            [
+                "39c7854c.56d18a"
+            ]
+        ]
+    },
+    {
+        "id": "df9b57e7193c90c9",
+        "type": "json",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 80,
+        "wires": [
+            [
+                "b8b70400f9334b4e",
+                "14836f2d51ba9663"
+            ]
+        ]
+    },
+    {
+        "id": "4256a32b17266dd0",
+        "type": "mqtt in",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "topic": "Humidity",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6961f14fdaa59452",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "2d91d39ca9729563"
+            ]
+        ]
+    },
+    {
+        "id": "0beb6c37db1256fb",
+        "type": "mqtt out",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "topic": "temperature",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 510,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c0b7502f344467eb",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "HUmidity",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 500,
+        "wires": [
+            [
+                "6b5ea2cbaec2de3f"
+            ]
+        ]
+    },
+    {
+        "id": "6b5ea2cbaec2de3f",
+        "type": "random",
+        "z": "b5d76542feef8d37",
+        "name": "randomTemp",
+        "low": "20",
+        "high": "50",
+        "inte": "false",
+        "property": "payload",
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "0beb6c37db1256fb",
+                "95d621f617c5ebf3"
+            ]
+        ]
+    },
+    {
+        "id": "95d621f617c5ebf3",
+        "type": "debug",
+        "z": "b5d76542feef8d37",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "71ec8576274076cf",
+        "type": "mqtt out",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "topic": "Humidity",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 500,
+        "y": 660,
+        "wires": []
+    },
+    {
         "id": "04ceeb5fc9f8b67f",
         "type": "inject",
         "z": "b5d76542feef8d37",
@@ -13,11 +407,11 @@
                 "vt": "str"
             }
         ],
-        "repeat": "3600",
+        "repeat": "10",
         "crontab": "",
         "once": false,
         "onceDelay": "10",
-        "topic": "Humidity",
+        "topic": "temperature",
         "payload": "",
         "payloadType": "date",
         "x": 120,
@@ -27,5 +421,67 @@
                 "52c387b2f8573df1"
             ]
         ]
+    },
+    {
+        "id": "52c387b2f8573df1",
+        "type": "random",
+        "z": "b5d76542feef8d37",
+        "name": "randomHumu",
+        "low": "10",
+        "high": "50",
+        "inte": "false",
+        "property": "payload",
+        "x": 300,
+        "y": 660,
+        "wires": [
+            [
+                "71ec8576274076cf",
+                "15444c1cad55e1d9"
+            ]
+        ]
+    },
+    {
+        "id": "15444c1cad55e1d9",
+        "type": "debug",
+        "z": "b5d76542feef8d37",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "6961f14fdaa59452",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     }
 ]
