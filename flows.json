@@ -329,7 +329,7 @@
         "crontab": "",
         "once": false,
         "onceDelay": "10",
-        "topic": "HUmidity",
+        "topic": "Humidity",
         "payload": "",
         "payloadType": "date",
         "x": 120,
