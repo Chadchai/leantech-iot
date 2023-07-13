@@ -325,11 +325,11 @@
                 "vt": "str"
             }
         ],
-        "repeat": "10",
+        "repeat": "3600",
         "crontab": "",
         "once": false,
         "onceDelay": "10",
-        "topic": "Humidity",
+        "topic": "temperature",
         "payload": "",
         "payloadType": "date",
         "x": 120,
@@ -407,11 +407,11 @@
                 "vt": "str"
             }
         ],
-        "repeat": "10",
+        "repeat": "3600",
         "crontab": "",
         "once": false,
         "onceDelay": "10",
-        "topic": "temperature",
+        "topic": "Humidity",
         "payload": "",
         "payloadType": "date",
         "x": 120,
