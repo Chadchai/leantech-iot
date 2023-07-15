@@ -39,6 +39,7 @@
         "node-red-contrib-mongoql":"latest",
         "azure-iot-central":"latest",
         "node-red-node-random":"latest",
+        "node-red-contrib-ui-svg":"latest",
         "redis": "3.0.2",
         "when": "3.7.8"
     }
