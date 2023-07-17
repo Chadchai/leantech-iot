@@ -142,17 +142,6 @@
         "hidden": false
     },
     {
-        "id": "7be3f317e9f5c37e",
-        "type": "ui_group",
-        "name": "Server Room1",
-        "tab": "371996ac950c3d9b",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": true,
-        "className": ""
-    },
-    {
         "id": "57976eed088665e1",
         "type": "ui_group",
         "name": "Server Room#2",
@@ -181,7 +170,7 @@
         "tab": "371996ac950c3d9b",
         "order": 5,
         "disp": true,
-        "width": "6",
+        "width": "12",
         "collapse": true,
         "className": ""
     },
@@ -543,8 +532,7 @@
         "wires": [
             [
                 "0beb6c37db1256fb",
-                "95d621f617c5ebf3",
-                "ebd33864d0284f41"
+                "95d621f617c5ebf3"
             ]
         ]
     },
@@ -626,8 +614,7 @@
         "wires": [
             [
                 "71ec8576274076cf",
-                "15444c1cad55e1d9",
-                "99d4c19f4a225870"
+                "15444c1cad55e1d9"
             ]
         ]
     },
@@ -657,7 +644,7 @@
         "width": 0,
         "height": 0,
         "order": 1,
-        "category": "Server",
+        "category": "server",
         "file": "racks-of-servers.jpg",
         "layout": "adjust",
         "showcontrols": true,
@@ -678,7 +665,7 @@
         "z": "b5d76542feef8d37",
         "name": "Login",
         "label": "",
-        "group": "7be3f317e9f5c37e",
+        "group": "",
         "order": 1,
         "width": "6",
         "height": "13",
@@ -754,94 +741,6 @@
         "x": 490,
         "y": 1020,
         "wires": []
-    },
-    {
-        "id": "ebd33864d0284f41",
-        "type": "ui_chart",
-        "z": "b5d76542feef8d37",
-        "name": "",
-        "group": "2599ec9b1b58516d",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "label": "Temperature",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 790,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "99d4c19f4a225870",
-        "type": "ui_chart",
-        "z": "b5d76542feef8d37",
-        "name": "",
-        "group": "2599ec9b1b58516d",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "label": "Humidity",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 780,
-        "y": 720,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "22da030c61e46e3e",
@@ -920,8 +819,188 @@
         "dblClickZoomPercentage": 150,
         "cssString": "div.ui-svg svg{\n    color: var(--nr-dashboard-widgetColor);\n    fill: currentColor !important;\n}\ndiv.ui-svg path {\n    fill: inherit;\n}",
         "name": "",
-        "x": 660,
-        "y": 920,
+        "x": 680,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "701df051cb18555d",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "temperature",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1120,
+        "wires": [
+            [
+                "33220d01ccdfcce3"
+            ]
+        ]
+    },
+    {
+        "id": "33220d01ccdfcce3",
+        "type": "random",
+        "z": "b5d76542feef8d37",
+        "name": "randomTemp",
+        "low": "20",
+        "high": "50",
+        "inte": "false",
+        "property": "payload",
+        "x": 310,
+        "y": 1120,
+        "wires": [
+            [
+                "ebd33864d0284f41"
+            ]
+        ]
+    },
+    {
+        "id": "134d3b762d57dac7",
+        "type": "inject",
+        "z": "b5d76542feef8d37",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "Humidity",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1280,
+        "wires": [
+            [
+                "fe3d0379351b7205"
+            ]
+        ]
+    },
+    {
+        "id": "fe3d0379351b7205",
+        "type": "random",
+        "z": "b5d76542feef8d37",
+        "name": "randomHumu",
+        "low": "10",
+        "high": "50",
+        "inte": "false",
+        "property": "payload",
+        "x": 300,
+        "y": 1280,
+        "wires": [
+            [
+                "99d4c19f4a225870"
+            ]
+        ]
+    },
+    {
+        "id": "ebd33864d0284f41",
+        "type": "ui_chart",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "group": "2599ec9b1b58516d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 550,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "99d4c19f4a225870",
+        "type": "ui_chart",
+        "z": "b5d76542feef8d37",
+        "name": "",
+        "group": "2599ec9b1b58516d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 540,
+        "y": 1280,
         "wires": [
             []
         ]
