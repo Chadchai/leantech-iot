@@ -1091,8 +1091,8 @@
         "type": "random",
         "z": "01f04cce5908c205",
         "name": "randomTC",
-        "low": "20",
-        "high": "30",
+        "low": "200",
+        "high": "400",
         "inte": "false",
         "property": "payload",
         "x": 330,
@@ -1155,8 +1155,8 @@
         "type": "random",
         "z": "01f04cce5908c205",
         "name": "randomTC",
-        "low": "20",
-        "high": "30",
+        "low": "200",
+        "high": "450",
         "inte": "false",
         "property": "payload",
         "x": 290,
@@ -1311,5 +1311,517 @@
                 "b6cf9cb9c694e036"
             ]
         ]
+    },
+    {
+        "id": "5afe42810f14f97c",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "TC2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 1460,
+        "wires": [
+            [
+                "86f4e5c3ecfb2fd1"
+            ]
+        ]
+    },
+    {
+        "id": "86f4e5c3ecfb2fd1",
+        "type": "random",
+        "z": "01f04cce5908c205",
+        "name": "randomTC",
+        "low": "218",
+        "high": "225",
+        "inte": "false",
+        "property": "payload",
+        "x": 330,
+        "y": 1460,
+        "wires": [
+            [
+                "c2f67c328c5986fc"
+            ]
+        ]
+    },
+    {
+        "id": "c2f67c328c5986fc",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/all/voltage",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 590,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "c11612b8ea83a910",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "TC2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 1540,
+        "wires": [
+            [
+                "943ac78e117eceb7"
+            ]
+        ]
+    },
+    {
+        "id": "943ac78e117eceb7",
+        "type": "random",
+        "z": "01f04cce5908c205",
+        "name": "randomTC",
+        "low": "218",
+        "high": "225",
+        "inte": "false",
+        "property": "payload",
+        "x": 330,
+        "y": 1540,
+        "wires": [
+            [
+                "082957a614756341"
+            ]
+        ]
+    },
+    {
+        "id": "082957a614756341",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/mdb1/voltage",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 600,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "950279037b9a3f0b",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "TC2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 1620,
+        "wires": [
+            [
+                "36d0e8a9d3f7b1fe"
+            ]
+        ]
+    },
+    {
+        "id": "36d0e8a9d3f7b1fe",
+        "type": "random",
+        "z": "01f04cce5908c205",
+        "name": "randomTC",
+        "low": "218",
+        "high": "225",
+        "inte": "false",
+        "property": "payload",
+        "x": 330,
+        "y": 1620,
+        "wires": [
+            [
+                "3fa27b41d1c31882"
+            ]
+        ]
+    },
+    {
+        "id": "3fa27b41d1c31882",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/mdb2/voltage",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 600,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "e59eed91d3df2fc7",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "TC2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1720,
+        "wires": [
+            [
+                "68df56e7de657d32"
+            ]
+        ]
+    },
+    {
+        "id": "68df56e7de657d32",
+        "type": "random",
+        "z": "01f04cce5908c205",
+        "name": "randomTC",
+        "low": "10",
+        "high": "50",
+        "inte": "false",
+        "property": "payload",
+        "x": 310,
+        "y": 1720,
+        "wires": [
+            [
+                "f6615e410b20066c"
+            ]
+        ]
+    },
+    {
+        "id": "f6615e410b20066c",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/mdb1/current",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 580,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "0b5ea8a63c2a5f81",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "TC2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1800,
+        "wires": [
+            [
+                "b01792564a24eb04"
+            ]
+        ]
+    },
+    {
+        "id": "b01792564a24eb04",
+        "type": "random",
+        "z": "01f04cce5908c205",
+        "name": "randomTC",
+        "low": "30",
+        "high": "80",
+        "inte": "false",
+        "property": "payload",
+        "x": 310,
+        "y": 1800,
+        "wires": [
+            [
+                "e03e51dfab0b4f51"
+            ]
+        ]
+    },
+    {
+        "id": "e03e51dfab0b4f51",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/mdb2/current",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 580,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "f1d472ed61b203a6",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "TC2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1900,
+        "wires": [
+            [
+                "0190f628b846609b"
+            ]
+        ]
+    },
+    {
+        "id": "0190f628b846609b",
+        "type": "random",
+        "z": "01f04cce5908c205",
+        "name": "randomTC",
+        "low": "70",
+        "high": "132",
+        "inte": "false",
+        "property": "payload",
+        "x": 310,
+        "y": 1900,
+        "wires": [
+            [
+                "fea4b8e1a9cfbd2c"
+            ]
+        ]
+    },
+    {
+        "id": "fea4b8e1a9cfbd2c",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/mdb1/kW",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 570,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "3279b9e305ef61a0",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "TC2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1980,
+        "wires": [
+            [
+                "2e89198eab29fe3d"
+            ]
+        ]
+    },
+    {
+        "id": "2e89198eab29fe3d",
+        "type": "random",
+        "z": "01f04cce5908c205",
+        "name": "randomTC",
+        "low": "30",
+        "high": "145",
+        "inte": "false",
+        "property": "payload",
+        "x": 310,
+        "y": 1980,
+        "wires": [
+            [
+                "10d13566a665b6a3"
+            ]
+        ]
+    },
+    {
+        "id": "10d13566a665b6a3",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/mdb2/kW",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 570,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "26b494f099888983",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "TC2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1860,
+        "wires": [
+            [
+                "42f46ad1c2ab9fa0"
+            ]
+        ]
+    },
+    {
+        "id": "42f46ad1c2ab9fa0",
+        "type": "random",
+        "z": "01f04cce5908c205",
+        "name": "randomTC",
+        "low": "150",
+        "high": "256",
+        "inte": "false",
+        "property": "payload",
+        "x": 310,
+        "y": 1860,
+        "wires": [
+            [
+                "81237992cdfd92c0"
+            ]
+        ]
+    },
+    {
+        "id": "81237992cdfd92c0",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/all/kW",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 560,
+        "y": 1860,
+        "wires": []
     }
 ]
