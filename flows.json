@@ -751,7 +751,8 @@
             [
                 "4bc6ca1040f4fcbb",
                 "881a654339c8a44a",
-                "eb58b54817ecf432"
+                "eb58b54817ecf432",
+                "3fca7f6afb50bd0d"
             ]
         ]
     },
@@ -873,7 +874,8 @@
         "wires": [
             [
                 "4e3f837ffd16cfc4",
-                "607fb80713bfd94d"
+                "607fb80713bfd94d",
+                "bed54fa0e9339526"
             ]
         ]
     },
@@ -1570,6 +1572,42 @@
         "broker": "6961f14fdaa59452",
         "x": 560,
         "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "3fca7f6afb50bd0d",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/mdb1/humid",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1300,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "bed54fa0e9339526",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/mdb1/temp",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1180,
+        "y": 340,
         "wires": []
     }
 ]
