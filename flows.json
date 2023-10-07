@@ -1058,35 +1058,6 @@
         "wires": []
     },
     {
-        "id": "456e5161ddd27f7d",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "TC1",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 1100,
-        "wires": [
-            [
-                "3728c1699bedb127"
-            ]
-        ]
-    },
-    {
         "id": "3728c1699bedb127",
         "type": "random",
         "z": "01f04cce5908c205",
@@ -1120,35 +1091,6 @@
         "x": 790,
         "y": 1260,
         "wires": []
-    },
-    {
-        "id": "f8ec0f6067274255",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "TC2",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 1260,
-        "wires": [
-            [
-                "cb545230a032ba5f"
-            ]
-        ]
     },
     {
         "id": "cb545230a032ba5f",
@@ -1337,7 +1279,16 @@
         "y": 1460,
         "wires": [
             [
-                "86f4e5c3ecfb2fd1"
+                "86f4e5c3ecfb2fd1",
+                "943ac78e117eceb7",
+                "36d0e8a9d3f7b1fe",
+                "68df56e7de657d32",
+                "b01792564a24eb04",
+                "42f46ad1c2ab9fa0",
+                "0190f628b846609b",
+                "2e89198eab29fe3d",
+                "cb545230a032ba5f",
+                "3728c1699bedb127"
             ]
         ]
     },
@@ -1377,35 +1328,6 @@
         "wires": []
     },
     {
-        "id": "c11612b8ea83a910",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "TC2",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 1540,
-        "wires": [
-            [
-                "943ac78e117eceb7"
-            ]
-        ]
-    },
-    {
         "id": "943ac78e117eceb7",
         "type": "random",
         "z": "01f04cce5908c205",
@@ -1439,35 +1361,6 @@
         "x": 600,
         "y": 1540,
         "wires": []
-    },
-    {
-        "id": "950279037b9a3f0b",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "TC2",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 1620,
-        "wires": [
-            [
-                "36d0e8a9d3f7b1fe"
-            ]
-        ]
     },
     {
         "id": "36d0e8a9d3f7b1fe",
@@ -1505,35 +1398,6 @@
         "wires": []
     },
     {
-        "id": "e59eed91d3df2fc7",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "TC2",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 1720,
-        "wires": [
-            [
-                "68df56e7de657d32"
-            ]
-        ]
-    },
-    {
         "id": "68df56e7de657d32",
         "type": "random",
         "z": "01f04cce5908c205",
@@ -1567,35 +1431,6 @@
         "x": 580,
         "y": 1720,
         "wires": []
-    },
-    {
-        "id": "0b5ea8a63c2a5f81",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "TC2",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 1800,
-        "wires": [
-            [
-                "b01792564a24eb04"
-            ]
-        ]
     },
     {
         "id": "b01792564a24eb04",
@@ -1633,35 +1468,6 @@
         "wires": []
     },
     {
-        "id": "f1d472ed61b203a6",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "TC2",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 1900,
-        "wires": [
-            [
-                "0190f628b846609b"
-            ]
-        ]
-    },
-    {
         "id": "0190f628b846609b",
         "type": "random",
         "z": "01f04cce5908c205",
@@ -1697,35 +1503,6 @@
         "wires": []
     },
     {
-        "id": "3279b9e305ef61a0",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "TC2",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 1980,
-        "wires": [
-            [
-                "2e89198eab29fe3d"
-            ]
-        ]
-    },
-    {
         "id": "2e89198eab29fe3d",
         "type": "random",
         "z": "01f04cce5908c205",
@@ -1759,35 +1536,6 @@
         "x": 570,
         "y": 1980,
         "wires": []
-    },
-    {
-        "id": "26b494f099888983",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "TC2",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 1860,
-        "wires": [
-            [
-                "42f46ad1c2ab9fa0"
-            ]
-        ]
     },
     {
         "id": "42f46ad1c2ab9fa0",
