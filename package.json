@@ -43,6 +43,6 @@
         "redis": "3.0.2",
         "when": "3.7.8",
         "node-red-contrib-totaliser": "0.0.11",
-        "node-red-contrib-influxdb":"0.61"
+        "node-red-contrib-influxdb":"0.6.1"
     }
 }
