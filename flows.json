@@ -197,6 +197,20 @@
         "className": ""
     },
     {
+        "id": "c3b40567b0b75840",
+        "type": "influxdb",
+        "hostname": "https://eu-central-1-1.aws.cloud2.influxdata.com",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "Power",
+        "usetls": true,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://eu-central-1-1.aws.cloud2.influxdata.com",
+        "rejectUnauthorized": true
+    },
+    {
         "id": "94d7b63b166f78ad",
         "type": "function",
         "z": "01f04cce5908c205",
@@ -384,23 +398,6 @@
         ]
     },
     {
-        "id": "4bc6ca1040f4fcbb",
-        "type": "debug",
-        "z": "01f04cce5908c205",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1180,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "e4e47e5cdeaa3be0",
         "type": "Azure IoT Central",
         "z": "01f04cce5908c205",
@@ -502,27 +499,9 @@
         "y": 500,
         "wires": [
             [
-                "bf08fcead87f548d",
-                "53a81b352bc7193e"
+                "bf08fcead87f548d"
             ]
         ]
-    },
-    {
-        "id": "53a81b352bc7193e",
-        "type": "debug",
-        "z": "01f04cce5908c205",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "24d62ae4dee08d1d",
@@ -566,27 +545,9 @@
         "y": 660,
         "wires": [
             [
-                "e35108224b9524d5",
                 "d9d3151e8a8c8137"
             ]
         ]
-    },
-    {
-        "id": "e35108224b9524d5",
-        "type": "debug",
-        "z": "01f04cce5908c205",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 720,
-        "wires": []
     },
     {
         "id": "3155558fc8594e99",
@@ -729,8 +690,7 @@
         "y": 500,
         "wires": [
             [
-                "ba30867fe66b96a2",
-                "e16e7fa9bc71a46b"
+                "ba30867fe66b96a2"
             ]
         ]
     },
@@ -749,7 +709,6 @@
         "y": 80,
         "wires": [
             [
-                "4bc6ca1040f4fcbb",
                 "881a654339c8a44a",
                 "eb58b54817ecf432",
                 "3fca7f6afb50bd0d"
@@ -772,23 +731,6 @@
         "broker": "6961f14fdaa59452",
         "x": 970,
         "y": 500,
-        "wires": []
-    },
-    {
-        "id": "2685631680dbe53e",
-        "type": "debug",
-        "z": "01f04cce5908c205",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 20,
         "wires": []
     },
     {
@@ -821,23 +763,6 @@
         ]
     },
     {
-        "id": "e16e7fa9bc71a46b",
-        "type": "debug",
-        "z": "01f04cce5908c205",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 920,
-        "y": 440,
-        "wires": []
-    },
-    {
         "id": "5258c1fa4e37ef93",
         "type": "function",
         "z": "01f04cce5908c205",
@@ -853,7 +778,6 @@
         "wires": [
             [
                 "8f9953c807b3bc16",
-                "2685631680dbe53e",
                 "503721fdde770930"
             ]
         ]
@@ -1112,40 +1036,6 @@
         ]
     },
     {
-        "id": "6413d11d1c661195",
-        "type": "debug",
-        "z": "01f04cce5908c205",
-        "name": "debug 7",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 1360,
-        "wires": []
-    },
-    {
-        "id": "af1757d814e0f3b3",
-        "type": "debug",
-        "z": "01f04cce5908c205",
-        "name": "debug 8",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1000,
-        "y": 1200,
-        "wires": []
-    },
-    {
         "id": "2d94989c245d89fa",
         "type": "mqtt out",
         "z": "01f04cce5908c205",
@@ -1178,7 +1068,6 @@
         "y": 1200,
         "wires": [
             [
-                "af1757d814e0f3b3",
                 "2d94989c245d89fa"
             ]
         ]
@@ -1217,8 +1106,7 @@
         "y": 1240,
         "wires": [
             [
-                "5b5eabca3e187e81",
-                "6413d11d1c661195"
+                "5b5eabca3e187e81"
             ]
         ]
     },
@@ -1501,7 +1389,7 @@
         "expiry": "",
         "broker": "6961f14fdaa59452",
         "x": 570,
-        "y": 1900,
+        "y": 1920,
         "wires": []
     },
     {
@@ -1609,5 +1497,145 @@
         "x": 1180,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "60ae800764954425",
+        "type": "influxdb in",
+        "z": "01f04cce5908c205",
+        "influxdb": "c3b40567b0b75840",
+        "name": "current_mdb1",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "powermonitoring",
+        "x": 460,
+        "y": 2120,
+        "wires": [
+            [
+                "e009d2c8b03924de"
+            ]
+        ]
+    },
+    {
+        "id": "86a325ce45a8150d",
+        "type": "influxdb out",
+        "z": "01f04cce5908c205",
+        "influxdb": "c3b40567b0b75840",
+        "name": "current_mdb1",
+        "measurement": "power",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "powermonitoring",
+        "x": 1360,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "7a44a2ab90c06668",
+        "type": "debug",
+        "z": "01f04cce5908c205",
+        "name": "display",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "ceb25553d94c6476",
+        "type": "function",
+        "z": "01f04cce5908c205",
+        "name": "function 1",
+        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r._field == \"current\") '\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 2120,
+        "wires": [
+            [
+                "60ae800764954425"
+            ]
+        ]
+    },
+    {
+        "id": "e009d2c8b03924de",
+        "type": "function",
+        "z": "01f04cce5908c205",
+        "name": "function 2",
+        "func": "let current =[];\nmsg.payload.forEach(function(data,index) {\nlet value = {current:data[\"_value\"],time:data[\"_start\"]};\n current.push(value);   \n});\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 2120,
+        "wires": [
+            [
+                "7a44a2ab90c06668",
+                "6eacd80868bf0733"
+            ]
+        ]
+    },
+    {
+        "id": "6eacd80868bf0733",
+        "type": "mqtt out",
+        "z": "01f04cce5908c205",
+        "name": "",
+        "topic": "leantech/mdb1/currentday",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 830,
+        "y": 2080,
+        "wires": []
+    },
+    {
+        "id": "bdbe54b05e09e0f5",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "120",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 2120,
+        "wires": [
+            [
+                "ceb25553d94c6476"
+            ]
+        ]
     }
 ]
