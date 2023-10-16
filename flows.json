@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "22bfaddffac46b99",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "6961f14fdaa59452",
         "type": "mqtt-broker",
         "name": "",
@@ -211,83 +219,31 @@
         "rejectUnauthorized": true
     },
     {
-        "id": "94d7b63b166f78ad",
-        "type": "function",
-        "z": "01f04cce5908c205",
-        "name": "Function",
-        "func": "var msg1 = '{\"deviceID\": \"Arduino001\", '\nmsg1 = msg1 + '\"SAK\": \"Yub6LJ9vjuPaJ4zWXCPEYr8+eRByyCUwB3h8VefIlEE=\", '  \nmsg1 = msg1 + '\"Protocol\": \"mqtt\", '\nmsg1 = msg1 + '\"Data\": { \"' + msg.topic + '\": \"' + msg.payload + '\"}}'\n\nvar newMsg = { payload: msg1 };\nreturn newMsg\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 380,
-        "wires": [
-            [
-                "c0fcc0e46d8007a9"
-            ]
-        ]
+        "id": "eeb221fb.ab27f",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "test",
+        "name": "test",
+        "usetls": true,
+        "tls": "d50d0c9f.31e858",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
     },
     {
-        "id": "074841d449f5fca5",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "Speed",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "",
-        "topic": "speed",
-        "payload": "345",
-        "payloadType": "num",
-        "x": 361,
-        "y": 387,
-        "wires": [
-            [
-                "94d7b63b166f78ad"
-            ]
-        ]
-    },
-    {
-        "id": "c0fcc0e46d8007a9",
-        "type": "debug",
-        "z": "01f04cce5908c205",
+        "id": "d50d0c9f.31e858",
+        "type": "tls-config",
         "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "payload",
-        "x": 848.3400268554688,
-        "y": 350.47998046875,
-        "wires": []
-    },
-    {
-        "id": "1ea7e3352e48be88",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "Temperature",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "topic": "temperature",
-        "payload": "87",
-        "payloadType": "num",
-        "x": 379,
-        "y": 423,
-        "wires": [
-            [
-                "94d7b63b166f78ad"
-            ]
-        ]
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false
     },
     {
         "id": "4cda43ccbc0d68b9",
@@ -377,27 +333,6 @@
         ]
     },
     {
-        "id": "896b7cb8fd6d43a7",
-        "type": "mqtt in",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "topic": "/Leantech/Temperature1",
-        "qos": "0",
-        "datatype": "auto-detect",
-        "broker": "6961f14fdaa59452",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 110,
-        "y": 80,
-        "wires": [
-            [
-                "67ae9c32f1eef4b0"
-            ]
-        ]
-    },
-    {
         "id": "e4e47e5cdeaa3be0",
         "type": "Azure IoT Central",
         "z": "01f04cce5908c205",
@@ -418,89 +353,6 @@
         "y": 180,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "a264eddcdf69bc44",
-        "type": "mqtt in",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "topic": "/Leantech/Huminity1",
-        "qos": "0",
-        "datatype": "auto-detect",
-        "broker": "6961f14fdaa59452",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bf08fcead87f548d",
-        "type": "mqtt out",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "topic": "temperature",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "6961f14fdaa59452",
-        "x": 510,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "7cc184302921b764",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "3600",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "temperature",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 500,
-        "wires": [
-            [
-                "2045d5aea6a309d5"
-            ]
-        ]
-    },
-    {
-        "id": "2045d5aea6a309d5",
-        "type": "random",
-        "z": "01f04cce5908c205",
-        "name": "randomTemp",
-        "low": "20",
-        "high": "50",
-        "inte": "false",
-        "property": "payload",
-        "x": 290,
-        "y": 500,
-        "wires": [
-            [
-                "bf08fcead87f548d"
-            ]
         ]
     },
     {
@@ -666,190 +518,6 @@
         ]
     },
     {
-        "id": "0fe678d7a964b8fe",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "/Leantech/Temperature1",
-        "payload": "{\"timestamp\":1631152760,\"messageId\":1,\"event\":\"test_data\",\"mfrs\":\"HMI/box\",\"data\":{\"id\" : 1436217747670454274,\"waterlevel\":350,\"temperature\" : 22938147}}",
-        "payloadType": "json",
-        "x": 770,
-        "y": 500,
-        "wires": [
-            [
-                "ba30867fe66b96a2"
-            ]
-        ]
-    },
-    {
-        "id": "8f9953c807b3bc16",
-        "type": "function",
-        "z": "01f04cce5908c205",
-        "name": "Function",
-        "func": "\nvar msg1 = msg.payload.data.temperature \n\nvar newMsg = { payload: (msg1/413921.5789).toFixed(2)};\nreturn newMsg\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 980,
-        "y": 80,
-        "wires": [
-            [
-                "881a654339c8a44a",
-                "eb58b54817ecf432",
-                "3fca7f6afb50bd0d",
-                "180159094b7c0a1c"
-            ]
-        ]
-    },
-    {
-        "id": "ba30867fe66b96a2",
-        "type": "mqtt out",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "topic": "/Leantech/Temperature1",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "6961f14fdaa59452",
-        "x": 970,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "67ae9c32f1eef4b0",
-        "type": "change",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "'",
-                "fromt": "str",
-                "to": "\"",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 80,
-        "wires": [
-            [
-                "5258c1fa4e37ef93"
-            ]
-        ]
-    },
-    {
-        "id": "5258c1fa4e37ef93",
-        "type": "function",
-        "z": "01f04cce5908c205",
-        "name": "Function",
-        "func": "\nvar msg1 = JSON.parse(msg.payload)\n\nvar newMsg = { payload: msg1 };\nreturn newMsg\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 660,
-        "y": 80,
-        "wires": [
-            [
-                "8f9953c807b3bc16",
-                "503721fdde770930"
-            ]
-        ]
-    },
-    {
-        "id": "503721fdde770930",
-        "type": "function",
-        "z": "01f04cce5908c205",
-        "name": "Function",
-        "func": "\nvar msg1 = msg.payload.data.waterlevel \n\nvar newMsg = { payload: msg1/10 };\nreturn newMsg\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 960,
-        "y": 140,
-        "wires": [
-            [
-                "4e3f837ffd16cfc4",
-                "607fb80713bfd94d",
-                "bed54fa0e9339526",
-                "7f8865a6a7881885"
-            ]
-        ]
-    },
-    {
-        "id": "4e3f837ffd16cfc4",
-        "type": "ui_chart",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "group": "2599ec9b1b58516d",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "label": "Temperature",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "25",
-        "ymax": "50",
-        "removeOlder": "5",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#247ab7",
-            "#aec7e8",
-            "#ea7610",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1150,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "d9d3151e8a8c8137",
         "type": "mqtt out",
         "z": "01f04cce5908c205",
@@ -865,106 +533,6 @@
         "broker": "6961f14fdaa59452",
         "x": 500,
         "y": 660,
-        "wires": []
-    },
-    {
-        "id": "881a654339c8a44a",
-        "type": "ui_chart",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "group": "e54a0200c3757c81",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "label": "Humidity",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "25",
-        "ymax": "70",
-        "removeOlder": "5",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#2480c2",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1160,
-        "y": 20,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "eb58b54817ecf432",
-        "type": "ui_gauge",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "group": "fd049c460d424ad5",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Humidity",
-        "label": "%",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "80",
-        "colors": [
-            "#d4f434",
-            "#05f040",
-            "#ca3838"
-        ],
-        "seg1": "35",
-        "seg2": "65",
-        "diff": false,
-        "className": "",
-        "x": 1300,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "607fb80713bfd94d",
-        "type": "ui_gauge",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "group": "fd049c460d424ad5",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Temperature",
-        "label": "°C",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "60",
-        "colors": [
-            "#e7fb51",
-            "#00e604",
-            "#ca3838"
-        ],
-        "seg1": "17",
-        "seg2": "30",
-        "diff": false,
-        "className": "",
-        "x": 1170,
-        "y": 200,
         "wires": []
     },
     {
@@ -1466,42 +1034,6 @@
         "wires": []
     },
     {
-        "id": "3fca7f6afb50bd0d",
-        "type": "mqtt out",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "topic": "leantech/mdb1/humid",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "6961f14fdaa59452",
-        "x": 1300,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "bed54fa0e9339526",
-        "type": "mqtt out",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "topic": "leantech/mdb1/temp",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "6961f14fdaa59452",
-        "x": 1180,
-        "y": 340,
-        "wires": []
-    },
-    {
         "id": "60ae800764954425",
         "type": "influxdb in",
         "z": "01f04cce5908c205",
@@ -1512,8 +1044,8 @@
         "precision": "",
         "retentionPolicy": "",
         "org": "powermonitoring",
-        "x": 460,
-        "y": 2120,
+        "x": 740,
+        "y": 2100,
         "wires": [
             [
                 "e009d2c8b03924de"
@@ -1551,8 +1083,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 800,
-        "y": 2180,
+        "x": 1080,
+        "y": 2160,
         "wires": []
     },
     {
@@ -1560,14 +1092,14 @@
         "type": "function",
         "z": "01f04cce5908c205",
         "name": "function 1",
-        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -10d, stop: now()) |> filter(fn: (r) => r._field == \"current\") '\nreturn msg;",
+        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -2h, stop: now()) |> filter(fn: (r) => r._field == \"Temperature\") '\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 2120,
+        "x": 560,
+        "y": 2100,
         "wires": [
             [
                 "60ae800764954425"
@@ -1585,8 +1117,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
-        "y": 2120,
+        "x": 920,
+        "y": 2100,
         "wires": [
             [
                 "7a44a2ab90c06668",
@@ -1599,7 +1131,7 @@
         "type": "mqtt out",
         "z": "01f04cce5908c205",
         "name": "",
-        "topic": "leantech/mdb1/currentday",
+        "topic": "leantech/coldroom/todaytemp",
         "qos": "0",
         "retain": "",
         "respTopic": "",
@@ -1608,73 +1140,8 @@
         "correl": "",
         "expiry": "",
         "broker": "6961f14fdaa59452",
-        "x": 830,
-        "y": 2080,
-        "wires": []
-    },
-    {
-        "id": "bdbe54b05e09e0f5",
-        "type": "inject",
-        "z": "01f04cce5908c205",
-        "name": "sampling time",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "120",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "10",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 2120,
-        "wires": [
-            [
-                "ceb25553d94c6476"
-            ]
-        ]
-    },
-    {
-        "id": "7f8865a6a7881885",
-        "type": "mqtt out",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "topic": "leantech/coldroom/temp",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "6961f14fdaa59452",
-        "x": 1190,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "180159094b7c0a1c",
-        "type": "mqtt out",
-        "z": "01f04cce5908c205",
-        "name": "",
-        "topic": "leantech/coldroom/humid",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "6961f14fdaa59452",
-        "x": 1250,
-        "y": 80,
+        "x": 1130,
+        "y": 2060,
         "wires": []
     },
     {
@@ -1694,5 +1161,1060 @@
         "x": 840,
         "y": 1340,
         "wires": []
+    },
+    {
+        "id": "8c77695e002f5802",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "Store Data",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 2260,
+        "wires": [
+            [
+                "3ed01bd81b7c78d3"
+            ]
+        ]
+    },
+    {
+        "id": "3ed01bd81b7c78d3",
+        "type": "change",
+        "z": "01f04cce5908c205",
+        "name": "Randomdata",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Temperature",
+                "pt": "global",
+                "to": "40*$random()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "Humidity",
+                "pt": "global",
+                "to": "60*$random()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "global",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 2260,
+        "wires": [
+            [
+                "8df0cf494280ba21"
+            ]
+        ]
+    },
+    {
+        "id": "8df0cf494280ba21",
+        "type": "function",
+        "z": "01f04cce5908c205",
+        "name": "function 3",
+        "func": "msg.topic =\"coldroommonitoring\";\nvar temp = global.get(\"Temperature\");\nvar humid = global.get(\"Humidity\");\nvar timestamp = global.get(\"timestamp\");\n\nmsg.payload = {\n\"Temperature\" : temp,\n\"Humidity\" : humid,\n\"Timestamp\" : timestamp\n\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 2260,
+        "wires": [
+            [
+                "22bf393601ea0c34",
+                "edef0f56f90865fb",
+                "ceb25553d94c6476"
+            ]
+        ]
+    },
+    {
+        "id": "22bf393601ea0c34",
+        "type": "debug",
+        "z": "01f04cce5908c205",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "edef0f56f90865fb",
+        "type": "influxdb out",
+        "z": "01f04cce5908c205",
+        "influxdb": "c3b40567b0b75840",
+        "name": "RoomTemp",
+        "measurement": "coldroom",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "powermonitoring",
+        "x": 690,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "7cc184302921b764",
+        "type": "inject",
+        "z": "01f04cce5908c205",
+        "name": "sampling time",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "120",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "temperature",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 500,
+        "wires": [
+            [
+                "2045d5aea6a309d5"
+            ]
+        ]
+    },
+    {
+        "id": "2045d5aea6a309d5",
+        "type": "random",
+        "z": "01f04cce5908c205",
+        "name": "randomTemp",
+        "low": "20",
+        "high": "50",
+        "inte": "false",
+        "property": "payload",
+        "x": 290,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "896b7cb8fd6d43a7",
+        "type": "mqtt in",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "topic": "/Leantech/Temperature1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6961f14fdaa59452",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "67ae9c32f1eef4b0"
+            ]
+        ]
+    },
+    {
+        "id": "8f9953c807b3bc16",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "Function",
+        "func": "\nvar msg1 = msg.payload.data.temperature \n\nvar newMsg = { payload: (msg1/413921.5789).toFixed(2)};\nreturn newMsg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 120,
+        "wires": [
+            [
+                "881a654339c8a44a",
+                "eb58b54817ecf432",
+                "3fca7f6afb50bd0d",
+                "180159094b7c0a1c"
+            ]
+        ]
+    },
+    {
+        "id": "67ae9c32f1eef4b0",
+        "type": "change",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "'",
+                "fromt": "str",
+                "to": "\"",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 120,
+        "wires": [
+            [
+                "5258c1fa4e37ef93"
+            ]
+        ]
+    },
+    {
+        "id": "5258c1fa4e37ef93",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "Function",
+        "func": "\nvar msg1 = JSON.parse(msg.payload)\n\nvar newMsg = { payload: msg1 };\nreturn newMsg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 120,
+        "wires": [
+            [
+                "8f9953c807b3bc16",
+                "503721fdde770930",
+                "503bf4a240e46ad1"
+            ]
+        ]
+    },
+    {
+        "id": "3fca7f6afb50bd0d",
+        "type": "mqtt out",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "topic": "leantech/mdb1/humid",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1500,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "180159094b7c0a1c",
+        "type": "mqtt out",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "topic": "leantech/coldroom/humid",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1670,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "503721fdde770930",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "Function",
+        "func": "\nvar msg1 = msg.payload.data.waterlevel \n\nvar newMsg = { payload: msg1/10 };\nreturn newMsg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 180,
+        "wires": [
+            [
+                "4e3f837ffd16cfc4",
+                "607fb80713bfd94d",
+                "bed54fa0e9339526",
+                "7f8865a6a7881885"
+            ]
+        ]
+    },
+    {
+        "id": "4e3f837ffd16cfc4",
+        "type": "ui_chart",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "group": "2599ec9b1b58516d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "25",
+        "ymax": "50",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#247ab7",
+            "#aec7e8",
+            "#ea7610",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1250,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb58b54817ecf432",
+        "type": "ui_gauge",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "group": "fd049c460d424ad5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "80",
+        "colors": [
+            "#d4f434",
+            "#05f040",
+            "#ca3838"
+        ],
+        "seg1": "35",
+        "seg2": "65",
+        "diff": false,
+        "className": "",
+        "x": 1400,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "607fb80713bfd94d",
+        "type": "ui_gauge",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "group": "fd049c460d424ad5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#e7fb51",
+            "#00e604",
+            "#ca3838"
+        ],
+        "seg1": "17",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 1270,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "bed54fa0e9339526",
+        "type": "mqtt out",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "topic": "leantech/mdb1/temp",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1280,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "7f8865a6a7881885",
+        "type": "mqtt out",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "topic": "leantech/coldroom/temp",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1290,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "503bf4a240e46ad1",
+        "type": "change",
+        "z": "22bfaddffac46b99",
+        "name": "Randomdata",
+        "rules": [
+            {
+                "t": "set",
+                "p": "data",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "global",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1530,
+        "y": 220,
+        "wires": [
+            [
+                "a28eebb5b4c24173"
+            ]
+        ]
+    },
+    {
+        "id": "a28eebb5b4c24173",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "function 4",
+        "func": "msg.topic =\"coldroommonitoring\";\nvar humid = (msg.payload.data.temperature/413921.5789);\nvar temp = (msg.payload.data.waterlevel / 10);\nvar timestamp = global.get(\"timestamp\");\n\nmsg.payload = {\n\"Temperature\" : temp,\n\"Humidity\" : humid,\n\"Timestamp\" : timestamp\n\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1740,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a95e5e4836cc512",
+        "type": "influxdb out",
+        "z": "22bfaddffac46b99",
+        "influxdb": "c3b40567b0b75840",
+        "name": "RoomTemp",
+        "measurement": "coldroom",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "powermonitoring",
+        "x": 1930,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "881a654339c8a44a",
+        "type": "ui_chart",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "group": "e54a0200c3757c81",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "25",
+        "ymax": "70",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#2480c2",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1260,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bea6d2e3817a73e9",
+        "type": "influxdb in",
+        "z": "22bfaddffac46b99",
+        "influxdb": "c3b40567b0b75840",
+        "name": "Day_Temp",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "powermonitoring",
+        "x": 550,
+        "y": 640,
+        "wires": [
+            [
+                "277e5e3a9ec1a1cc"
+            ]
+        ]
+    },
+    {
+        "id": "277e5e3a9ec1a1cc",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "function 6",
+        "func": "let current =[];\nmsg.payload.forEach(function(data,index) {\nlet value = {current:data[\"_value\"],time:data[\"_start\"]};\n current.push(value);   \n});\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 640,
+        "wires": [
+            [
+                "57c92f9c7c367160"
+            ]
+        ]
+    },
+    {
+        "id": "57c92f9c7c367160",
+        "type": "mqtt out",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "topic": "leantech/coldroom/roomtemp/day",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1140,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "e23bbdad48c11987",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "Day",
+        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -30d, stop: now()) |> filter(fn: (r) => r._field == \"Temperature\")  |> window(every: 60m) |> mean()'\n\n//msg.query = 'SELECT * FROM \"coldroom\" WHERE time >= now() - interval \"6 hours\" '\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 640,
+        "wires": [
+            [
+                "bea6d2e3817a73e9"
+            ]
+        ]
+    },
+    {
+        "id": "39aa2ca9.804da4",
+        "type": "debug",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 830,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "262a3923.e7b216",
+        "type": "influxdb in",
+        "z": "22bfaddffac46b99",
+        "influxdb": "c3b40567b0b75840",
+        "name": "Getdata",
+        "query": "from(bucket: \"powermonitoring\") |> range(start: -6h, stop: now()) |> filter(fn: (r) => r._field == \"Temperature\")  |> window(every: 5m) |> mean()",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "powermonitoring",
+        "x": 630,
+        "y": 900,
+        "wires": [
+            [
+                "39aa2ca9.804da4"
+            ]
+        ]
+    },
+    {
+        "id": "803d82f.ff80f8",
+        "type": "inject",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 900,
+        "wires": [
+            [
+                "262a3923.e7b216"
+            ]
+        ]
+    },
+    {
+        "id": "675ce4e48f447cc5",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "function 7",
+        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -10m, stop: now()) |> filter(fn: (r) => r._field == \"Temperature\")'\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4b5b277e124cfde7",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "Month",
+        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -30d, stop: now()) |> filter(fn: (r) => r._field == \"Temperature\")  |> window(every: 1d) |> mean()'\n\n//msg.query = 'SELECT * FROM \"coldroom\" WHERE time >= now() - interval \"6 hours\" '\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 700,
+        "wires": [
+            [
+                "5f98a630f56ec8d0"
+            ]
+        ]
+    },
+    {
+        "id": "6094d872f4048390",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "Year",
+        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -30d, stop: now()) |> filter(fn: (r) => r._field == \"Temperature\")  |> window(every: 30m) |> mean()'\n\n//msg.query = 'SELECT * FROM \"coldroom\" WHERE time >= now() - interval \"6 hours\" '\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 760,
+        "wires": [
+            [
+                "b8463ceb51a42b6e"
+            ]
+        ]
+    },
+    {
+        "id": "6e68bc31f8abd035",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "Hour",
+        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -8h, stop: now()) |> filter(fn: (r) => r._field == \"Temperature\")  |> window(every: 5m) |> mean()'\n\n//msg.query = 'SELECT * FROM \"coldroom\" WHERE time >= now() - interval \"6 hours\" '\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 580,
+        "wires": [
+            [
+                "611fe44f2f5c372c"
+            ]
+        ]
+    },
+    {
+        "id": "611fe44f2f5c372c",
+        "type": "influxdb in",
+        "z": "22bfaddffac46b99",
+        "influxdb": "c3b40567b0b75840",
+        "name": "Day_Temp",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "powermonitoring",
+        "x": 550,
+        "y": 580,
+        "wires": [
+            [
+                "185b3ade58a482b8"
+            ]
+        ]
+    },
+    {
+        "id": "185b3ade58a482b8",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "function 8",
+        "func": "let current =[];\nmsg.payload.forEach(function(data,index) {\nlet value = {current:data[\"_value\"],time:data[\"_start\"]};\n current.push(value);   \n});\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 580,
+        "wires": [
+            [
+                "8faf1e5487aa4051"
+            ]
+        ]
+    },
+    {
+        "id": "8faf1e5487aa4051",
+        "type": "mqtt out",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "topic": "leantech/coldroom/roomtemp/hour",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1140,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5f98a630f56ec8d0",
+        "type": "influxdb in",
+        "z": "22bfaddffac46b99",
+        "influxdb": "c3b40567b0b75840",
+        "name": "Day_Temp",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "powermonitoring",
+        "x": 550,
+        "y": 700,
+        "wires": [
+            [
+                "c5bb779a3b761beb"
+            ]
+        ]
+    },
+    {
+        "id": "c5bb779a3b761beb",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "function 9",
+        "func": "let current =[];\nmsg.payload.forEach(function(data,index) {\nlet value = {current:data[\"_value\"],time:data[\"_start\"]};\n current.push(value);   \n});\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 700,
+        "wires": [
+            [
+                "5b5b9c9d6831704e"
+            ]
+        ]
+    },
+    {
+        "id": "5b5b9c9d6831704e",
+        "type": "mqtt out",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "topic": "leantech/coldroom/roomtemp/month",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1150,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "b8463ceb51a42b6e",
+        "type": "influxdb in",
+        "z": "22bfaddffac46b99",
+        "influxdb": "c3b40567b0b75840",
+        "name": "Day_Temp",
+        "query": "",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "powermonitoring",
+        "x": 550,
+        "y": 760,
+        "wires": [
+            [
+                "d60dd67fdba4e272"
+            ]
+        ]
+    },
+    {
+        "id": "d60dd67fdba4e272",
+        "type": "function",
+        "z": "22bfaddffac46b99",
+        "name": "function 10",
+        "func": "let current =[];\nmsg.payload.forEach(function(data,index) {\nlet value = {current:data[\"_value\"],time:data[\"_start\"]};\n current.push(value);   \n});\nmsg.payload = current;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 760,
+        "wires": [
+            [
+                "ab437aec6d483d8a"
+            ]
+        ]
+    },
+    {
+        "id": "ab437aec6d483d8a",
+        "type": "mqtt out",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "topic": "leantech/coldroom/roomtemp/year",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 1140,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "6e23fe82b1ce335b",
+        "type": "inject",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 580,
+        "wires": [
+            [
+                "6e68bc31f8abd035"
+            ]
+        ]
+    },
+    {
+        "id": "dcb98acb063125b3",
+        "type": "inject",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 640,
+        "wires": [
+            [
+                "e23bbdad48c11987"
+            ]
+        ]
+    },
+    {
+        "id": "b4777c51c54ee17a",
+        "type": "inject",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 700,
+        "wires": [
+            [
+                "4b5b277e124cfde7"
+            ]
+        ]
+    },
+    {
+        "id": "897b949f490b83ba",
+        "type": "inject",
+        "z": "22bfaddffac46b99",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "43200",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 760,
+        "wires": [
+            [
+                "6094d872f4048390"
+            ]
+        ]
     }
 ]
