@@ -1919,7 +1919,7 @@
         "type": "function",
         "z": "22bfaddffac46b99",
         "name": "Hour",
-        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -8h, stop: now()) |> filter(fn: (r) => r._field == \"Temperature\")  |> window(every: 5m) |> mean()'\n\n//msg.query = 'SELECT * FROM \"coldroom\" WHERE time >= now() - interval \"6 hours\" '\nreturn msg",
+        "func": "msg.query = 'from(bucket: \"powermonitoring\") |> range(start: -2h, stop: now()) |> filter(fn: (r) => r._field == \"Temperature\")  |> window(every: 1m) |> mean()'\n\n//msg.query = 'SELECT * FROM \"coldroom\" WHERE time >= now() - interval \"6 hours\" '\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
