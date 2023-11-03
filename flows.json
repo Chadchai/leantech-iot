@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "3b5f4f6f853a84bb",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "6961f14fdaa59452",
         "type": "mqtt-broker",
         "name": "",
@@ -1447,7 +1455,7 @@
         "correl": "",
         "expiry": "",
         "broker": "6961f14fdaa59452",
-        "x": 1670,
+        "x": 1750,
         "y": 120,
         "wires": []
     },
@@ -1657,7 +1665,9 @@
         "x": 1740,
         "y": 260,
         "wires": [
-            []
+            [
+                "1a95e5e4836cc512"
+            ]
         ]
     },
     {
@@ -2216,5 +2226,210 @@
                 "6094d872f4048390"
             ]
         ]
+    },
+    {
+        "id": "b94627ce463607bd",
+        "type": "random",
+        "z": "3b5f4f6f853a84bb",
+        "name": "randomHM",
+        "low": "35",
+        "high": "43",
+        "inte": "false",
+        "property": "payload",
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "a88e509429fa6969",
+                "483c709b706319b3"
+            ]
+        ]
+    },
+    {
+        "id": "801cf698ed7c5c33",
+        "type": "random",
+        "z": "3b5f4f6f853a84bb",
+        "name": "randomTC",
+        "low": "24",
+        "high": "28",
+        "inte": "false",
+        "property": "payload",
+        "x": 430,
+        "y": 120,
+        "wires": [
+            [
+                "a88e509429fa6969",
+                "1f62fad142e58fc0"
+            ]
+        ]
+    },
+    {
+        "id": "fcd0f5446a157631",
+        "type": "inject",
+        "z": "3b5f4f6f853a84bb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Temperature",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "801cf698ed7c5c33"
+            ]
+        ]
+    },
+    {
+        "id": "487495d55c21e7e7",
+        "type": "inject",
+        "z": "3b5f4f6f853a84bb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Humidity",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "b94627ce463607bd"
+            ]
+        ]
+    },
+    {
+        "id": "a88e509429fa6969",
+        "type": "join",
+        "z": "3b5f4f6f853a84bb",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 690,
+        "y": 140,
+        "wires": [
+            [
+                "9dc8c5d70697c79b"
+            ]
+        ]
+    },
+    {
+        "id": "5fdf327005d6b0b1",
+        "type": "inject",
+        "z": "3b5f4f6f853a84bb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Timestamp",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 260,
+        "wires": [
+            [
+                "a88e509429fa6969"
+            ]
+        ]
+    },
+    {
+        "id": "9dc8c5d70697c79b",
+        "type": "influxdb out",
+        "z": "3b5f4f6f853a84bb",
+        "influxdb": "c3b40567b0b75840",
+        "name": "RoomTemp",
+        "measurement": "coldroom",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "powermonitoring",
+        "x": 930,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "483c709b706319b3",
+        "type": "mqtt out",
+        "z": "3b5f4f6f853a84bb",
+        "name": "",
+        "topic": "leantech/coldroom/humid",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 690,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1f62fad142e58fc0",
+        "type": "mqtt out",
+        "z": "3b5f4f6f853a84bb",
+        "name": "",
+        "topic": "leantech/coldroom/temp",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6961f14fdaa59452",
+        "x": 670,
+        "y": 60,
+        "wires": []
     }
 ]
