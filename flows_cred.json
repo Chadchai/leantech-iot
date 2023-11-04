@@ -5,7 +5,7 @@
         "password": "${NETATMO_BEARER}"
     },
     "ee20ae5266a5e32c": {
-        "token": "AElgie2_yKGwl1dutQJxPa03gJOBWffNdjp19F3g6VCB-pA8TrIs0c4I6wGzY0yE6cgbvzxcvjTCbxXuiLK11A=="
+        "token": "${BOT_TOKEN}"
     },
     "9c09e087.a48e7": {},
     "f08c8c22d21d93de": {
