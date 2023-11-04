@@ -224,7 +224,6 @@
         "tls": "",
         "influxdbVersion": "2.0",
         "url": "https://eu-central-1-1.aws.cloud2.influxdata.com",
-        "token": "AElgie2_yKGwl1dutQJxPa03gJOBWffNdjp19F3g6VCB-pA8TrIs0c4I6wGzY0yE6cgbvzxcvjTCbxXuiLK11A==",
         "rejectUnauthorized": true
     },
     {
